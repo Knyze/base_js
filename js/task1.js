@@ -2,21 +2,19 @@
 var i = 3; // Счетчик чисел до 100
 var primeNumbers = [2];
 
-while (i <= 100) {
-    var j = 0; // Счетчик чисел по простым числам
-    var isPrimeNumber = true;
-
-    while (j < primeNumbers.length) {
-        if (i % primeNumbers[j++] == 0) {
-            isPrimeNumber = false;
+function isPrimeNumber(number, primeNumbers) {
+    for (var j = 0; j < primeNumbers.length; j++) {
+        if (number % primeNumbers[j] == 0)
+            return false;
+        if (Math.sqrt(number) < primeNumbers[j])
             break;
-        }
     }
+    return true;
+}
 
-    if (isPrimeNumber) {
+while (i <= 100) {
+    if (isPrimeNumber(i, primeNumbers))
         primeNumbers.push(i);
-    }
-
     i++;
 }
 
