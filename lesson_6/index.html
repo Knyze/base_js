@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="js/shop.js"></script>
+    <script>
+        var cart = [];
+        var catalog = createRandomCatalog();
+        
+        function init() {
+            bildShop(catalog);
+            $wrapAttend = document.querySelector('.wrapAttend');
+            $wrapAttend.addEventListener('click', hundleShopClick);
+            $clearButton = document.getElementById('clearButton');
+            $clearButton.addEventListener('click', hundleClearButtonClick);
+        }
+        
+        window.addEventListener('load', init);
+        
+    </script>
+
+</head>
+
+<body>
+    <div class="attend container">
+        <h2>НАШИ ТОВАРЫ</h2>
+        <div class="wrapAttend">
+            <div class="wrapProduct invisible">
+                <div class="addProduct">
+                    Add to Cart
+                </div>
+                <div class="imgProduct">
+                    <img src="images/BLAZE_LEGGINGS.png" alt="BLAZE LEGGINGS">
+                </div>
+                <div class="textProduct">
+                    <h6>BLAZE LEGGINGS</h6>
+                    <p>$52.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="shopping container invisible">
+        <header>
+            <div>Product Details</div>
+            <div>unite Price</div>
+            <div>Quantity</div>
+            <div>shipping</div>
+            <div>subtotal</div>
+            <div>ACTION</div>
+        </header>
+        
+        <section class="invisible">
+            <div class="productDetails">
+                <img src="" alt="product 1">
+                <div class="textProduct">
+                    <h3>MANGO PEOPLE T-SHIRT</h3>
+                </div>
+            </div>
+            <div>$150</div>
+            <div><input type="number" name="count" value="2" onchange="hundleNumberChange(this)"></div>
+            <div>FREE</div>
+            <div>$<output name="result">300</output></div>
+            <div><a href="#" onclick="hundleClearClick(this)"><img src="images/cansel.png" alt="cansel" ></a></div>
+        </section>
+        
+        <footer>
+            <button id="clearButton">CLEAR SHOPPING CART</button>
+            <span>В корзине n товаров на сумму $</span>
+        </footer>
+    </div>
+</body>
+
+</html>
